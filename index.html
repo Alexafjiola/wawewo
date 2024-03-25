@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>__Puasa</title>
+  <!-- Tambahkan link untuk memuat Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Tambahkan link untuk font populer seperti Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- Tambahkan link untuk memuat FontAwesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-sans flex items-center justify-center min-h-screen">
+
+  <!-- Alert akan muncul setelah konten dimuat -->
+  <script>
+    // Tampilkan alert saat halaman dimuat pertama kali
+    window.onload = function() {
+      alert("Mbo lagi bosen mangkane gawe ngene. ini semua membutuhkan waktu 15 mnt an hahah sori lek opo onoke.");
+      // Setelah alert ditutup, tampilkan konten
+      document.getElementById("app").classList.remove("hidden");
+    };
+  </script>
+
+  <!-- Konten akan disembunyikan saat halaman dimuat -->
+  <div id="app" class="max-w-lg mx-auto p-8 bg-white rounded-lg shadow-lg flex flex-col items-center gap-8 transition-opacity duration-300 hidden">
+
+    <h1 class="text-2xl font-semibold mb-8">Panduan Puasa</h1>
+
+    <div class="flex flex-col space-y-4 w-full">
+      <button id="showTextButton" class="flex items-center justify-center bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300">
+        <i class="far fa-file-alt text-lg mr-2"></i>
+        Niat Puasa
+      </button>
+
+      <button id="showPhotoButton" class="flex items-center justify-center bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300">
+        <i class="far fa-image text-lg mr-2"></i>
+        Gausah Didelok
+      </button>
+
+      <button id="showVideoButton" class="flex items-center justify-center bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300">
+        <i class="far fa-play-circle text-lg mr-2"></i>
+        Video Puasa
+      </button>
+    </div>
+
+    <div id="textContainer" class="hidden w-full text-center transition-opacity duration-300">
+      <p id="text" class="text-lg text-gray-800"><span class="italic">نَوَيْتُ صَوْمَ غَدٍ عَنْ أَدَاءِ فَرْضِ شَهْرِ رَمَضَانِ هذِهِ السَّنَةِ لِلهِ تَعَالَى</span><br><br>
+        Nawaitu shauma ghadin 'an adâ'i fardhi syahri Ramadhâni hâdzihis sanati lillâhi ta'âla. <br><br>
+Artinya: "Aku berniat puasa esok hari untuk menunaikan fardhu di bulan Ramadhan tahun ini, karena Allah ta'ala."</p><br>
+      <button id="hideTextButton" class="block mx-auto bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300 mt-4">
+        Kembali
+      </button>
+    </div>
+
+    <div id="photoContainer" class="hidden w-full text-center transition-opacity duration-300">
+      <img id="photo" src="foto.jpg" alt="Foto" class="object-contain max-h-96 mx-auto">Halo, ini aku pas lagi darusan bien haha. aku bien wis towok darusan dll :))
+      <button id="hidePhotoButton" class="block mx-auto bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300 mt-4">
+        Kembali
+      </button>
+    </div>
+
+    <div id="videoContainer" class="hidden w-full text-center transition-opacity duration-300">
+      <video id="video" class="w-full h-96" controls autoplay>
+        <source src="video.mp4" type="video/mp4">
+      </video>
+      <button id="hideVideoButton" class="block mx-auto bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300 mt-4">
+        Kembali
+      </button>
+    </div>
+  </div>
+
+  <!-- Tambahkan link untuk memuat JavaScript -->
+  <script src="script.js"></script>
+  <script>
+    // Fungsi untuk menghentikan video saat ditutup
+    function stopVideo() {
+      var videoElement = document.getElementById("video");
+      videoElement.pause();
+    }
+
+    // Tambahkan event listener untuk tombol "Tampilkan Video"
+    document.getElementById("showVideoButton").addEventListener("click", function() {
+      // Jalankan video otomatis
+      var videoElement = document.getElementById("video");
+      videoElement.play();
+    });
+
+    // Tambahkan event listener untuk tombol "Kembali" pada video
+    document.getElementById("hideVideoButton").addEventListener("click", function() {
+      // Hentikan video
+      stopVideo();
+    });
+  </script>
+</body>
+</html>
